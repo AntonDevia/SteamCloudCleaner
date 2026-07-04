@@ -72,7 +72,3 @@ Optional parameters / Опциональные параметры:
 ```powershell
 .\SteamCloudCleaner.ps1 -AppId 730 -SteamId 123456789 -SteamPath "C:\Program Files (x86)\Steam"
 ```
-
-## Contributors
-
-- [AntonDevia](https://github.com/AntonDevia)
