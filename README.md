@@ -9,8 +9,11 @@ A PowerShell TUI tool that automates clearing Steam Cloud sync data for a game
 Run this in PowerShell to download and run the latest script directly:
 
 ```powershell
-iwr -useb https://raw.githubusercontent.com/AntonDevia/SteamCloudCleaner/master/SteamCloudCleaner.ps1 | iex
+iex ((iwr -useb https://raw.githubusercontent.com/AntonDevia/SteamCloudCleaner/master/SteamCloudCleaner.ps1).Content.TrimStart([char]0xFEFF))
 ```
+
+(The `.TrimStart([char]0xFEFF)` strips a UTF-8 BOM character that Windows PowerShell
+5.1 otherwise leaves inside the string, which breaks parsing when piped to `iex`.)
 
 Review the script before running it against your own Steam library — it performs
 an irreversible cloud wipe. If you'd rather inspect the code first, download it
